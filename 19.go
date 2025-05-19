@@ -1,7 +1,5 @@
 package main
 
-import "github.com/inancgumus/prettyslice"
-
 func receiveMessage() []byte {
 	var b []byte
 	return b
@@ -35,15 +33,4 @@ func consumeMessageGood(src []byte, num int) {
 	dst := make([]byte, num) // num 으로 지정해서 구성된 길이까지 copy
 
 	copy(dst, src)
-}
-
-func main() {
-	num := 5
-	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
-
-	b := make([]int, num)
-	copy(b, a)
-
-	prettyslice.Show("aa", a)
-	prettyslice.Show("bb", b)
 }
