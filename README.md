@@ -51,5 +51,21 @@ s := make([]int, 3,6)
 s[3] = 10 // range error ❌
 s = append(s, 10) // ✅
 
-
 ```
+
+### [16. nil과 빈 슬라이스를 혼동하지 마라](./16.go)
+
+- 슬라이스의 길이가 0이면 <b>empty slice</b> 다
+- 슬라이스가 nil과 같으면 <b>nil slice</b> 다
+
+```go
+    []string                // nil slice
+    []string(nil)           // nil slice
+
+    []string{}              // empty slice -> 할당을 해줘야 함
+    make([]string,0)        // empty slice -> 할당을 해줘야 함
+```
+
+### [17. 슬라이스가 비었는지 제대로 확인하라](./17.go)
+
+- nil slice, empty slice 를 판별하는 함수를 작성하라
