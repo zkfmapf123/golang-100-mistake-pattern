@@ -94,3 +94,38 @@ copy(b, a)
 b // len 5, cap 5
 
 ```
+
+### [20. 값을 올바르게 비교하는 방법](./20.go)
+
+- 서로 값을 비교할때는 reflect를 이용해라
+- reflect는 메타프로그래밍으로서, app 내부구조와 동작을 변경함
+- reflect.DeepEqual은 재귀적으로 탐색해서 동등관계를 파악함
+
+```go
+
+// ❌ bad
+type customer struct {
+    id string
+}
+
+c1 := cusomter{id : "x"}
+c2 := cusomter{id : "y"}
+
+fmt.Println(c1 == c2) // false
+
+```
+
+```go
+
+// ❌ bad (compile error)
+type customer struct {
+    id string
+    op []float64
+}
+
+c1 := cusomter{id : "x", op : []float64{1.0}}
+c2 := cusomter{id : "y", op : []float64{1.0}}
+
+fmt.Println(c1 == c2) // compile error
+
+```
