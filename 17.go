@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/inancgumus/prettyslice"
 )
 
 func generateId(id string) string {
@@ -19,12 +17,4 @@ func handleOperations(id string) []any {
 	}
 
 	return []any{} // empty slice
-}
-
-func main() {
-	var a []string
-	b := []string{}
-
-	prettyslice.Show("aa", a)
-	prettyslice.Show("bb", b)
 }
