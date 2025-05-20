@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Account struct {
 	Balance int
 }
@@ -35,4 +37,44 @@ func balanceB() {
 */
 func balanceC() {
 	// pointer...
+}
+
+/*
+range는 복제라는 예시 1 (배열은 다름)
+*/
+func range_ex1() {
+	sliceA := []int{1, 2, 3}
+	for i, v := range sliceA {
+		sliceA[2] = 10
+
+		if i == 2 {
+			fmt.Println(v) // 10 slice는 참조방식 -> 값 자체가 바뀐다
+		}
+	}
+
+	arrayA := [3]int{1, 2, 3}
+	for i, v := range arrayA {
+		arrayA[2] = 10
+
+		if i == 2 {
+			fmt.Println(v) // 2 배열은 복사값의 대해서 변경되지 않는다.
+		}
+	}
+}
+
+/*
+✅ 만약, 배열의 대한 값을 바꿔야 한다면? -> 배열 포인터 활용
+배열크기가 크다면 아래 방법을 사용하는 것을 추천
+배열전체를 굳이 copy 하지 않아도 되기때문에 ...
+*/
+func arrayBetterCode() {
+	a := [3]int{1, 2, 3}
+
+	for i, v := range &a {
+		a[2] = 10
+
+		if i == 2 {
+			fmt.Println(v)
+		}
+	}
 }
