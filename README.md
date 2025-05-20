@@ -129,3 +129,13 @@ c2 := cusomter{id : "y", op : []float64{1.0}}
 fmt.Println(c1 == c2) // compile error
 
 ```
+
+### [21. range 잘 쓰는 방법](./21.go)
+
+- range loop 에서 값에 해당하는 원소는 항상 <b>복제본</b>이다.
+
+```go
+    for _, v := range []int{1,2,3,4,5} {
+        // v <- 복제본임...
+    }
+```
