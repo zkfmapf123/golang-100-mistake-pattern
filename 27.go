@@ -65,9 +65,3 @@ func _27_channel() {
 
 	fmt.Println(i)
 }
-
-func main() {
-	_27_atomic()
-	_27_criticalSection()
-	_27_channel()
-}
