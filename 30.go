@@ -64,19 +64,3 @@ func handler(ctx context.Context, ch chan string) error {
 		}
 	}
 }
-
-func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	ch := make(chan string)
-
-	go func() {
-		handler(ctx, ch)
-	}()
-
-	ch <- "lee"
-	ch <- "dong"
-	ch <- "gyu"
-
-	cancel()
-	close(ch)
-}
