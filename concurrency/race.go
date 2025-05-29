@@ -73,7 +73,3 @@ func bad_channel() {
 		ch <- struct{}{} // 버퍼드 채널로 인한 경쟁 상태
 	}()
 }
-
-func main() {
-	state_race()
-}
